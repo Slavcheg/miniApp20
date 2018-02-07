@@ -30,6 +30,8 @@ import { FormComponent } from './form/form.component';
       MatInputModule, MatButtonModule, MatCardModule,
       ReactiveFormsModule,
       FlexLayoutModule,
+      
+      FormsModule,
 
       HttpModule
   ],

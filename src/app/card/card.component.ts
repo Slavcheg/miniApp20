@@ -27,9 +27,12 @@ export class CardComponent implements OnInit {
     likes: 123213,
     comments: 123213
     }
+
+
   }
 
-  onReload(ccard: Card){
+  onLoad(ccard: string){
+    this._card.pro_pic = ccard;
     console.log(ccard);
   }
 
