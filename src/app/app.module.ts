@@ -11,7 +11,10 @@ import { CardComponent } from './card/card.component';
 import { HttpModule } from '@angular/http';
 
 // Classes
-import {Card} from './models/card.model'
+import {Card} from './models/card.model';
+
+//Services
+import { DatabaseService } from './services/database.service';
 
 //Drawings
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -43,7 +46,8 @@ import { FormComponent } from './form/form.component';
   ],
   providers: [
         ArticleService,
-        Card
+        Card,
+        DatabaseService
   ],
   bootstrap: [
         AppComponent

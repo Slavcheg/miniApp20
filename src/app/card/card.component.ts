@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import {Card} from '../models/card.model'
+import { DatabaseService } from '../services/database.service';
+import {Card} from '../models/card.model';
 
 @Component({
   selector: 'card',
@@ -9,14 +11,32 @@ import {Card} from '../models/card.model'
 })
 export class CardComponent implements OnInit {
 
-  constructor(private _card: Card) { 
+  allCards: Card[];
+  
+   statusCode: number;
+   requestProcessing = false;
+   articleIdToUpdate = null;
+   processValidation = false;
+
+  cardForm = new FormGroup(
+    {
+    URL: new FormControl('', Validators.required)
+    //category: new FormControl('', Validators.required)	   
+    }
+);
+
+  constructor(private _card: Card,
+  private dataServ: DatabaseService ) { 
  
   }
 
   ngOnInit() {
+
+    this.getAllCards();
+
     this._card = {
       
-    id: 'asd',
+    id: 'asdds',
     pro_pic: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
     full_name: 'Shiba Inu',
     date: 132564789,
@@ -27,8 +47,15 @@ export class CardComponent implements OnInit {
     likes: 123213,
     comments: 123213
     }
+  }
 
 
+  getAllCards(){
+    this.dataServ.getAllCards()
+	  .subscribe(
+                data => this.allCards = data,
+                errorCode =>  this.statusCode = errorCode
+              );   
   }
 
   onLoad(ccard: string){
@@ -36,4 +63,60 @@ export class CardComponent implements OnInit {
     console.log(ccard);
   }
 
+  onCardFormSubmit(){
+    console.log("Save card: start");
+
+    let card = this._card;
+    this.dataServ.getAllCards()
+    .subscribe(articles => {
+   /*
+      this.processValidation = true;   
+      if (this.cardForm.invalid) {
+           return; //Validation failed, exit from method.
+      }  
+      */
+   //Generate article id	 
+    //let maxIndex = articles.length - 1;
+    //let articleWithMaxIndex = articles[maxIndex];
+    //let articleId = articleWithMaxIndex.id + 1;
+    //article.id = articleId;
+   
+   //Create article
+              this.dataServ.createCard(card)
+    .subscribe(successCode => {
+       this.statusCode = successCode;
+       this.getAllCards();	
+        this.backToCreateArticle();
+       this.cardForm.reset()
+     },
+     errorCode => console.log(errorCode) //this.statusCode = errorCode
+     );
+ });
+  }
+
+     //Delete article
+     deleteCard(cardId: string) {
+      this.preProcessConfigurations();
+      this.dataServ.deleteCardById(cardId)
+	      .subscribe(successCode => {
+		  //this.statusCode = successCode;
+	  	  //Expecting success code 204 from server
+		  this.statusCode = 204;
+		  this.getAllCards();	
+		  this.backToCreateArticle();
+		},
+		errorCode => this.statusCode = errorCode);    
+   }
+
+  preProcessConfigurations() {
+    this.statusCode = null;
+    this.requestProcessing = true;   
+ }
+
+  backToCreateArticle(){
+    this.articleIdToUpdate = null;
+    this.cardForm.reset();	  
+    this.processValidation = false;
+
+  };
 }
