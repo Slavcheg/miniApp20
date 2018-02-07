@@ -24,7 +24,6 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule, MatButtonModule, MatCardModule } from '@angular/material';
 import { FormComponent } from './form/form.component';
 
-
 @NgModule({
   imports: [     
       BrowserModule,
@@ -43,7 +42,7 @@ import { FormComponent } from './form/form.component';
       AppComponent,
 	ArticleComponent,
 	CardComponent,
-	FormComponent
+      FormComponent
   ],
   providers: [
         ArticleService,

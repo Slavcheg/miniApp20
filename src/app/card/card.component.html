@@ -8,17 +8,18 @@
 
 <mat-card class="example-card">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{_card.pro_pic}}</mat-card-title>
-    <mat-card-subtitle>{{_card.date}}</mat-card-subtitle>
+    <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(' + _card.pro_pic + ')'}"></div>
+    <mat-card-title>{{_card.full_name}}</mat-card-title>
+    <mat-card-subtitle>{{_card.date * 1000 | date:'d MMM yyyy'}}</mat-card-subtitle>
   </mat-card-header>
   <img mat-card-image [src]="_card.post_pic" alt="Post photo">
   <mat-card-content>
     <p>{{_card.caption}}}</p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
+    <i class="far fa-heart fa-lg"></i>{{_card.likes}}
+    <i class="far fa-comment fa-lg"></i>{{_card.comments}}
+    <i class="fab fa-instagram fa-lg" style="float:right"></i>
   </mat-card-actions>
 </mat-card>
 </form>
@@ -26,17 +27,19 @@
 <div *ngFor="let cards of allCards" >
     <mat-card class="example-card">
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{cards.pro_pic}}</mat-card-title>
-          <mat-card-subtitle>{{cards.date}}</mat-card-subtitle>
+          <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(' + cards.pro_pic + ')'}"></div>
+          <mat-card-title>{{cards.full_name}}</mat-card-title>
+          <mat-card-subtitle>{{cards.date * 1000 | date:'d MMM yyyy'}}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image [src]="cards.post_pic" alt="Post photo">
         <mat-card-content>
-          <p>{{cards.caption}}}</p>
+          <p class="caption">{{cards.caption}}}</p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button>LIKE</button>
+          <i class="far fa-heart fa-lg"></i>{{cards.likes}}
+          <i class="far fa-comment fa-lg"></i>{{cards.comments}}
           <button mat-button type="button" (click)="deleteCard(cards.id)">DELETE</button>
+          <i class="fab fa-instagram fa-lg" style="float:right"></i>
         </mat-card-actions>
       </mat-card>
 
