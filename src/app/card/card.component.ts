@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+import { InstagramService } from '../services/instagram.service';
 import { DatabaseService } from '../services/database.service';
 import {Card} from '../models/card.model';
 
@@ -26,7 +27,8 @@ export class CardComponent implements OnInit {
 );
 
   constructor(private _card: Card,
-  private dataServ: DatabaseService ) { 
+    private dataServ: DatabaseService,
+    private instaAPI: InstagramService) { 
  
   }
 
@@ -58,10 +60,18 @@ export class CardComponent implements OnInit {
               );   
   }
 
-  onLoad(ccard: string){
-    this._card.pro_pic = ccard;
-    console.log(ccard);
-  }
+  onLoad(postId: string){
+      //this.preProcessConfigurations();
+      this.instaAPI.getPostByCode(postId)
+     .subscribe(article => {
+              //this.articleIdToUpdate = article.id;   
+              //this.cardForm.setValue({ title: article.title, category: article.category });
+        this._card = article
+        this.processValidation = true;
+        this.requestProcessing = false;   
+     },
+           errorCode =>  this.statusCode = errorCode);   
+   }
 
   onCardFormSubmit(){
     console.log("Save card: start");
@@ -107,6 +117,8 @@ export class CardComponent implements OnInit {
 		},
 		errorCode => this.statusCode = errorCode);    
    }
+
+
 
   preProcessConfigurations() {
     this.statusCode = null;

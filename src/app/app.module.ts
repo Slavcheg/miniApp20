@@ -15,6 +15,7 @@ import {Card} from './models/card.model';
 
 //Services
 import { DatabaseService } from './services/database.service';
+import { InstagramService } from './services/instagram.service';
 
 //Drawings
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -47,7 +48,8 @@ import { FormComponent } from './form/form.component';
   providers: [
         ArticleService,
         Card,
-        DatabaseService
+        DatabaseService,
+        InstagramService
   ],
   bootstrap: [
         AppComponent
