@@ -10,6 +10,9 @@ import { ArticleService } from './article.service';
 import { CardComponent } from './card/card.component';
 import { HttpModule } from '@angular/http';
 
+// Classes
+import {Card} from './models/card.model'
+
 //Drawings
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,7 +40,8 @@ import { FormComponent } from './form/form.component';
 	FormComponent
   ],
   providers: [
-        ArticleService
+        ArticleService,
+        Card
   ],
   bootstrap: [
         AppComponent
