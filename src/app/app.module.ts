@@ -15,6 +15,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule, MatButtonModule, MatCardModule } from '@angular/material';
+import { FormComponent } from './form/form.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MatInputModule, MatButtonModule, MatCardModule } from '@angular/materia
   declarations: [
       AppComponent,
 	ArticleComponent,
-	CardComponent
+	CardComponent,
+	FormComponent
   ],
   providers: [
         ArticleService
