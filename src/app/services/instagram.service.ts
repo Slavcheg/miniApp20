@@ -22,7 +22,7 @@ export class InstagramService {
         
         let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: cpHeaders });
-        console.log(postUrl +"/"+ code);
+        console.log(postUrl + code);
 
         return this.http.get(url)
         .map(this.extractData)
@@ -41,7 +41,7 @@ export class InstagramService {
                 }
             }
         _body = _body.match(dataExp)[1]
-        //console.log(JSON.parse(_body).entry_data.PostPage[0].graphql)
+        console.log(JSON.parse(_body).entry_data.PostPage[0].graphql.shortcode_media)
         return ({
             pro_pic: JSON.parse(_body)
                 .entry_data.PostPage[0].graphql.shortcode_media.owner.profile_pic_url,
