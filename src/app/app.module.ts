@@ -9,6 +9,7 @@ import { ArticleService } from './article.service';
 //Set-ups
 import { CardComponent } from './card/card.component';
 import { HttpModule } from '@angular/http';
+import {RouterModule} from '@angular/router'
 
 // Classes
 import {Card} from './models/card.model';
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule, MatButtonModule, MatCardModule } from '@angular/material';
 import { FormComponent } from './form/form.component';
+import { BigviewComponent } from './bigview/bigview.component';
 
 @NgModule({
   imports: [     
@@ -36,13 +38,19 @@ import { FormComponent } from './form/form.component';
       
       FormsModule,
 
-      HttpModule
+      HttpModule,
+      RouterModule.forRoot([
+            {path: '', component: BigviewComponent},
+            {path: 'admin', component: CardComponent},
+            {path: '**', component: BigviewComponent}
+      ])
   ],
   declarations: [
       AppComponent,
 	ArticleComponent,
 	CardComponent,
-      FormComponent
+      FormComponent,
+      BigviewComponent
   ],
   providers: [
         ArticleService,

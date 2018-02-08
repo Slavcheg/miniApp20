@@ -1,5 +1,5 @@
 <div fxLayout='row' class="zero">
-  <div fxFlex="33"  class="one" >
+  <div fxFlex="27"  class="one" >
     <form [formGroup]="cardForm" class="example-form" (ngSubmit)="onCardFormSubmit()">
       <!-- <mat-form-field class="example-full-width"> -->
         <input #url matInput formControlName="URL" placeholder="Enter post url" value="url">
@@ -16,7 +16,7 @@
       </mat-card-header>
       <img mat-card-image [src]="_card.post_pic" alt="Post photo">
       <mat-card-content>
-        <p class="caption">{{_card.caption}}}</p>
+        <p class="caption">{{_card.caption}}</p>
       </mat-card-content>
       <mat-card-actions>
         <i class="far fa-heart fa-lg"></i>{{_card.likes}}
@@ -27,7 +27,7 @@
     </form>
   </div>
 
-  <div fxFlex="66" class="two" fxLayout="row wrap" fxLayoutAlign="left top" fxLayoutGap="10px">
+  <div fxFlex="73" class="two" fxLayout="row wrap" fxLayoutAlign="left top" fxLayoutGap="10px">
     <div *ngFor="let cards of allCards" >
         <mat-card class="example-card">
             <mat-card-header>
@@ -37,7 +37,7 @@
             </mat-card-header>
             <img mat-card-image [src]="cards.post_pic" alt="Post photo">
             <mat-card-content>
-              <p class="caption">{{cards.caption}}}</p>
+              <p class="caption">{{cards.caption}}</p>
             </mat-card-content>
             <mat-card-actions>
               <i class="far fa-heart fa-lg"></i>{{cards.likes}}

@@ -1,0 +1,14 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    
+    background-size: cover;
+  }
+
+  .caption{
+    border-bottom:1px gray solid; 
+    border-bottom-style: inset; 
+    padding-bottom:20px
+   }
