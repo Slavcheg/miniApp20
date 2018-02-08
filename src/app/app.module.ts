@@ -9,7 +9,7 @@ import { ArticleService } from './article.service';
 //Set-ups
 import { CardComponent } from './card/card.component';
 import { HttpModule } from '@angular/http';
-import {RouterModule} from '@angular/router'
+import {RouterModule, Routes} from '@angular/router'
 
 // Classes
 import {Card} from './models/card.model';
@@ -32,6 +32,17 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 
+const routes: Routes = [
+      {
+            path: '', component: AppComponent,
+            children: [
+              { path: '', component: BigviewComponent },
+              { path: 'admin', component: CardComponent }
+            ]
+          },
+          { path: '**', redirectTo: '' }
+        ];
+
 @NgModule({
   imports: [     
       BrowserModule,
@@ -48,11 +59,7 @@ import { environment } from '../environments/environment';
       AngularFireDatabaseModule,
 
       HttpModule,
-      RouterModule.forRoot([
-            {path: '', component: BigviewComponent},
-            {path: 'admin', component: CardComponent},
-            {path: '**', component: BigviewComponent}
-      ])
+      RouterModule.forRoot(routes)
   ],
   declarations: [
       AppComponent,
