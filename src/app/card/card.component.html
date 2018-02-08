@@ -43,7 +43,7 @@
             <mat-card-actions>
               <i class="far fa-heart fa-lg"></i>{{cards.likes}}
               <i class="far fa-comment fa-lg"></i>{{cards.comments}}
-              <button mat-button type="button" (click)="deleteCard(cards.id)">DELETE</button>
+              <button mat-button type="button" (click)="deleteCard(cards.$key)">DELETE</button>
               <i class="fab fa-instagram fa-lg" style="float:right"></i>
             </mat-card-actions>
           </mat-card>

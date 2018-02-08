@@ -162,10 +162,10 @@ export class CardComponent implements OnInit {
    }
 */
 
-deleteCard(id: string){
+deleteCard(key: string){
   if (true) {
-    var s = this.firebase.findEmployeeKeyByName(id)
-    this.firebase.deleteEmployee(s);
+    //var s = this.firebase.findEmployeeKeyByName(key)
+    this.firebase.deleteEmployee(key);
     //this.tostr.warning("Deleted Successfully", "Employee register");
   }
 }

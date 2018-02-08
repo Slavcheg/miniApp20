@@ -8,7 +8,7 @@ import { Card } from '../models/card.model';
 @Injectable()
 export class FirebaseService {
   cardList: AngularFireList<any>;
-  //selectedEmployee: InstaData = new InstaData();
+  selectedCard: Card = new Card();
   //employee: InstaData;
 
   constructor(private firebase: AngularFireDatabase) { }
