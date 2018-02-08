@@ -17,6 +17,7 @@ import {Card} from './models/card.model';
 //Services
 import { DatabaseService } from './services/database.service';
 import { InstagramService } from './services/instagram.service';
+import { FirebaseService } from './services/firebase.service';
 
 //Drawings
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -25,6 +26,11 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule, MatButtonModule, MatCardModule } from '@angular/material';
 import { FormComponent } from './form/form.component';
 import { BigviewComponent } from './bigview/bigview.component';
+
+// Firebase db
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
 
 @NgModule({
   imports: [     
@@ -37,6 +43,9 @@ import { BigviewComponent } from './bigview/bigview.component';
       FlexLayoutModule,
       
       FormsModule,
+
+      AngularFireModule.initializeApp(environment.firebaseConfig),
+      AngularFireDatabaseModule,
 
       HttpModule,
       RouterModule.forRoot([
@@ -56,7 +65,8 @@ import { BigviewComponent } from './bigview/bigview.component';
         ArticleService,
         Card,
         DatabaseService,
-        InstagramService
+        InstagramService,
+        FirebaseService
   ],
   bootstrap: [
         AppComponent

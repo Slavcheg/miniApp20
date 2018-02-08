@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { InstagramService } from '../services/instagram.service';
 import { DatabaseService } from '../services/database.service';
+import { FirebaseService } from '../services/firebase.service';
 import {Card} from '../models/card.model';
 
 @Component({
@@ -28,10 +29,12 @@ export class CardComponent implements OnInit {
 
   constructor(private _card: Card,
     private dataServ: DatabaseService,
-    private instaAPI: InstagramService) { 
+    private instaAPI: InstagramService,
+    private firebase: FirebaseService
+    ) { 
  
   }
-
+/*
   ngOnInit() {
 
     this.getAllCards();
@@ -49,7 +52,25 @@ export class CardComponent implements OnInit {
        username: "mini"
       }
   }
-
+*/
+  ngOnInit(){
+    var x = this.firebase.getData();
+    x.snapshotChanges().subscribe(item => {
+      this.allCards = [];
+      item.forEach((element, index)=>{
+        var y = element.payload.toJSON();
+        y["$key"] = element.key;
+        this.allCards.push(y as Card);
+        //this.employeeList[element.]
+        //console.log(element.key)
+        //console.log(this.employeeList[index].name)
+        //this.getPost(this.employeeList[index].name)
+      });
+      //this.allCards.forEach(y=>{
+        //this.onLoad(y.id)
+      //})
+    });
+  }
 
   getAllCards(){
     this.dataServ.getAllCards()
@@ -73,6 +94,9 @@ export class CardComponent implements OnInit {
            errorCode =>  this.statusCode = errorCode);   
    }
 
+   onCardSubmit(){
+    this.firebase.insertCard(this._card);
+  }
   onCardFormSubmit(){
     console.log("Save card: start");
 
