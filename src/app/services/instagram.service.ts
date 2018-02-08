@@ -58,6 +58,8 @@ export class InstagramService {
             comments: JSON.parse(_body)
                 .entry_data.PostPage[0].graphql.shortcode_media.edge_media_to_comment.count,
             id: JSON.parse(_body)
+                .entry_data.PostPage[0].graphql.shortcode_media.shortcode,
+            username: JSON.parse(_body)
                 .entry_data.PostPage[0].graphql.shortcode_media.shortcode
 
             })

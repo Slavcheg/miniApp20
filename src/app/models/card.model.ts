@@ -8,4 +8,5 @@ export class Card {
     caption: String;
     likes: Number;
     comments: Number;
+    username: string;
 }
