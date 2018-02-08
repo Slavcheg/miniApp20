@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+//Services
 import { InstagramService } from '../services/instagram.service';
 import { DatabaseService } from '../services/database.service';
 import { FirebaseService } from '../services/firebase.service';
+
+//Model
 import {Card} from '../models/card.model';
 
 @Component({
@@ -54,6 +57,21 @@ export class CardComponent implements OnInit {
   }
 */
   ngOnInit(){
+
+    this._card = {
+      
+      $key: "",
+      pro_pic : "https://instagram.fsof3-1.fna.fbcdn.net/vp/b8bd4522b2a8be04fd2078104bb2c392/5B1ACB82/t51.2885-19/11248209_1451199795176849_1901894346_a.jpg",
+      full_name : "MINI",
+      date : 1517824799,
+      post_pic : "https://instagram.fsof3-1.fna.fbcdn.net/vp/d1d44756bbefeef58aa08e4fc9a45ea5/5B0E7798/t51.2885-15/s640x640/sh0.08/e35/27575182_398672613894009_7270277397490958336_n.jpg",
+      caption : "A #ClassicMini spotted by @wiley.putnam in #London. #MINIMonday #MINIgram #MINIfan.",
+      likes : 18563,
+      comments : 51,
+      id : "Bez5S1jgQvC",
+      username: "mini"
+     }
+
     var x = this.firebase.getData();
     x.snapshotChanges().subscribe(item => {
       this.allCards = [];
@@ -95,6 +113,7 @@ export class CardComponent implements OnInit {
    }
 
    onCardSubmit(){
+     console.log("On submit")
     this.firebase.insertCard(this._card);
   }
   onCardFormSubmit(){
@@ -127,7 +146,7 @@ export class CardComponent implements OnInit {
      );
  });
   }
-
+/*
      //Delete article
      deleteCard(cardId: string) {
       this.preProcessConfigurations();
@@ -141,7 +160,15 @@ export class CardComponent implements OnInit {
 		},
 		errorCode => this.statusCode = errorCode);    
    }
+*/
 
+deleteCard(id: string){
+  if (true) {
+    var s = this.firebase.findEmployeeKeyByName(id)
+    this.firebase.deleteEmployee(s);
+    //this.tostr.warning("Deleted Successfully", "Employee register");
+  }
+}
 
 
   preProcessConfigurations() {

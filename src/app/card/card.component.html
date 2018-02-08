@@ -29,6 +29,7 @@
 
   <div fxFlex="73" class="two" fxLayout="row wrap" fxLayoutAlign="left top" fxLayoutGap="10px">
     <div *ngFor="let cards of allCards" >
+        <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="cards.$key">
         <mat-card class="example-card">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(' + cards.pro_pic + ')'}"></div>

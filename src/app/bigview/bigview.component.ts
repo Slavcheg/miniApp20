@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+//Services
 import { InstagramService } from '../services/instagram.service';
 import { DatabaseService } from '../services/database.service';
+import { FirebaseService } from '../services/firebase.service';
+
+//Model
 import {Card} from '../models/card.model';
 
 @Component({
@@ -28,11 +32,27 @@ export class BigviewComponent implements OnInit {
 
   constructor(private _card: Card,
     private dataServ: DatabaseService,
-    private instaAPI: InstagramService) { 
+    private instaAPI: InstagramService,
+    private firebase: FirebaseService
+  ) { 
  
   }
+  /*
   ngOnInit() {
     this.getAllCards();
+  }
+*/
+
+  ngOnInit() {
+    var x = this.firebase.getData();
+    x.snapshotChanges().subscribe(item => {
+      this.allCards = [];
+      item.forEach((element, index)=>{
+        var y = element.payload.toJSON();
+        y["$key"] = element.key;
+        this.allCards.push(y as Card);
+      });
+    });
   }
 
   getAllCards(){
