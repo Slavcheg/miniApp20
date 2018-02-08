@@ -3,7 +3,7 @@ export class Card {
     id: string;
     pro_pic: string;
     full_name: String;
-    date: Number;
+    date: number;
     post_pic: String;
     caption: String;
     likes: Number;

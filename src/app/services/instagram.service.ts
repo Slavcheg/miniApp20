@@ -41,7 +41,7 @@ export class InstagramService {
                 }
             }
         _body = _body.match(dataExp)[1]
-        console.log(JSON.parse(_body).entry_data.PostPage[0].graphql.shortcode_media)
+        console.log(JSON.parse(_body).entry_data.PostPage[0].graphql)
         return ({
             pro_pic: JSON.parse(_body)
                 .entry_data.PostPage[0].graphql.shortcode_media.owner.profile_pic_url,
@@ -60,7 +60,7 @@ export class InstagramService {
             id: JSON.parse(_body)
                 .entry_data.PostPage[0].graphql.shortcode_media.shortcode,
             username: JSON.parse(_body)
-                .entry_data.PostPage[0].graphql.shortcode_media.shortcode
+                .entry_data.PostPage[0].graphql.shortcode_media.owner.username
 
             })
         

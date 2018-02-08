@@ -17,6 +17,7 @@ import {Card} from '../models/card.model';
 export class CardComponent implements OnInit {
 
   allCards: Card[];
+  _card: Card
   
    statusCode: number;
    requestProcessing = false;
@@ -30,7 +31,7 @@ export class CardComponent implements OnInit {
     }
 );
 
-  constructor(private _card: Card,
+  constructor(
     private dataServ: DatabaseService,
     private instaAPI: InstagramService,
     private firebase: FirebaseService
@@ -66,8 +67,8 @@ export class CardComponent implements OnInit {
       date : 1517824799,
       post_pic : "https://instagram.fsof3-1.fna.fbcdn.net/vp/d1d44756bbefeef58aa08e4fc9a45ea5/5B0E7798/t51.2885-15/s640x640/sh0.08/e35/27575182_398672613894009_7270277397490958336_n.jpg",
       caption : "A #ClassicMini spotted by @wiley.putnam in #London. #MINIMonday #MINIgram #MINIfan.",
-      likes : 18563,
-      comments : 51,
+      likes : 63,
+      comments : 0,
       id : "Bez5S1jgQvC",
       username: "mini"
      }

@@ -33,15 +33,10 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 
 const routes: Routes = [
-      {
-            path: '', component: AppComponent,
-            children: [
-              { path: '', component: BigviewComponent },
-              { path: 'admin', component: CardComponent }
-            ]
-          },
-          { path: '**', redirectTo: '' }
-        ];
+      {path: '', component: BigviewComponent },
+      {path: 'admin', component: CardComponent} ,
+      { path: '**', redirectTo: '' }
+      ]
 
 @NgModule({
   imports: [     
@@ -59,7 +54,8 @@ const routes: Routes = [
       AngularFireDatabaseModule,
 
       HttpModule,
-      RouterModule.forRoot(routes)
+      RouterModule.forRoot(routes),
+
   ],
   declarations: [
       AppComponent,

@@ -1,20 +1,28 @@
 <div fxFlex="100" class="two" fxLayout="row wrap" fxLayoutAlign="left top" fxLayoutGap="10px">
     <div *ngFor="let cards of allCards" >
         <mat-card class="example-card">
+            <a href="https://www.instagram.com/{{cards.username}}">
             <mat-card-header>
+                
               <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(' + cards.pro_pic + ')'}"></div>
               <mat-card-title>{{cards.full_name}}</mat-card-title>
               <mat-card-subtitle>{{cards.date * 1000 | date:'d MMM yyyy'}}</mat-card-subtitle>
-            </mat-card-header>           
+                
+            </mat-card-header>   
+          </a>      
+          <a href="https://www.instagram.com/p/{{cards.id}}">  
             <img mat-card-image [src]="cards.post_pic" alt="Post photo">
+          </a>
             <mat-card-content>
                 <a href="https://www.instagram.com/p/{{cards.id}}">
               <p class="caption">{{cards.caption}}</p>
             </a>
             </mat-card-content>
             <mat-card-actions>
-              <i class="far fa-heart fa-lg"></i>{{cards.likes}}
-              <i class="far fa-comment fa-lg"></i>{{cards.comments}}
+                <a href="https://www.instagram.com/p/{{cards.id}}">
+              <i class="far fa-heart fa-lg"></i>{{'  ' + cards.likes + '  '}}
+              <i class="far fa-comment fa-lg"></i>{{'  ' + cards.comments + '  '}}
+                </a>
               <a href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg" style="float:right"></i></a>
             </mat-card-actions>
           </mat-card>

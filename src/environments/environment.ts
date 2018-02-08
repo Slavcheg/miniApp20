@@ -6,11 +6,11 @@
 export const environment = {
   production: false,
   firebaseConfig:{
-    apiKey: "AIzaSyDuyCzPmJC4ZaN75Zu5SutWi1sw_vFvTXY",
-    authDomain: "instamini-57a32.firebaseapp.com",
-    databaseURL: "https://instamini-57a32.firebaseio.com",
-    projectId: "instamini-57a32",
-    storageBucket: "instamini-57a32.appspot.com",
-    messagingSenderId: "1083430137711"
+    apiKey: "AIzaSyAEmTOBGNbVv2vXf-gKyBRdxfJMYiasFxQ",
+    authDomain: "mini20-7a3be.firebaseapp.com",
+    databaseURL: "https://mini20-7a3be.firebaseio.com",
+    projectId: "mini20-7a3be",
+    storageBucket: "mini20-7a3be.appspot.com",
+    messagingSenderId: "826004178528"
   }
 };
