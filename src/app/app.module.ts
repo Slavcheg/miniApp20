@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppComponent }  from './app.component';
 import { ArticleComponent }  from './article.component';
@@ -74,7 +75,8 @@ const routes: Routes = [
         Card,
         DatabaseService,
         InstagramService,
-        FirebaseService
+        FirebaseService,
+        {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [
         AppComponent

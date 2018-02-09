@@ -85,6 +85,7 @@ export class CardComponent implements OnInit {
         //console.log(this.employeeList[index].name)
         //this.getPost(this.employeeList[index].name)
       });
+      this.allCards.reverse()
       //this.allCards.forEach(y=>{
         //this.onLoad(y.id)
       //})

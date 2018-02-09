@@ -50,8 +50,9 @@ export class BigviewComponent implements OnInit {
       item.forEach((element, index)=>{
         var y = element.payload.toJSON();
         y["$key"] = element.key;
-        this.allCards.push(y as Card);
+        this.allCards.push(y as Card);        
       });
+      this.allCards.reverse()
     });
   }
 
