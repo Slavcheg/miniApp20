@@ -33,10 +33,15 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 
 const routes: Routes = [
-      {path: '', component: BigviewComponent },
-      {path: 'admin', component: CardComponent} ,
+      {
+        path: '', component: AppComponent,
+        children: [
+          { path: '', component: BigviewComponent },
+          { path: 'admin', component: CardComponent }
+        ]
+      },
       { path: '**', redirectTo: '' }
-      ]
+    ];
 
 @NgModule({
   imports: [     
