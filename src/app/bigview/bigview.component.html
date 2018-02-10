@@ -1,5 +1,5 @@
-<div fxFlex="100" class="two" fxLayout="row wrap" fxLayoutAlign="left top" fxLayoutGap="10px">
-    <div *ngFor="let cards of allCards">
+<div fxFlex="100" class="two" fxLayout="row wrap" fxLayoutAlign="left start" fxLayoutGap="10px" class="table">
+    <div *ngFor="let cards of allCards" class="row">
         <mat-card class="example-card">
             <a href="https://www.instagram.com/{{cards.username}}">
             <mat-card-header>

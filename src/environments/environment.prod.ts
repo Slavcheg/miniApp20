@@ -1,11 +1,12 @@
 export const environment = {
   production: true,
   firebaseConfig:{
-    apiKey: "AIzaSyAEmTOBGNbVv2vXf-gKyBRdxfJMYiasFxQ",
-    authDomain: "mini20-7a3be.firebaseapp.com",
-    databaseURL: "https://mini20-7a3be.firebaseio.com",
-    projectId: "mini20-7a3be",
-    storageBucket: "mini20-7a3be.appspot.com",
-    messagingSenderId: "826004178528"
+    apiKey: "AIzaSyAu-6HZjhT7LNY-Qk7KiqVH6ESSE2TYyVI",
+    authDomain: "mini-social-db.firebaseapp.com",
+    databaseURL: "https://mini-social-db.firebaseio.com",
+    projectId: "mini-social-db",
+    storageBucket: "mini-social-db.appspot.com",
+    messagingSenderId: "650596590963"
   }
+  //ng build --prod --base-href /instagram/ --deploy-url /instagram/ --aot=false -d /instagram/
 };
