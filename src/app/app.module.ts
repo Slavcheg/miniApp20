@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
+
+registerLocaleData(localeDe);
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppComponent }  from './app.component';
@@ -78,7 +82,7 @@ const routes: Routes = [
         InstagramService,
         FirebaseService,
         {provide: LocationStrategy, useClass: HashLocationStrategy},
-        //{ provide: LOCALE_ID, useValue: "sv-SE" }
+        { provide: LOCALE_ID, useValue: "de" }
   ],
   bootstrap: [
         AppComponent
