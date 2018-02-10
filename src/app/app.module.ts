@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LOCALE_ID } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppComponent }  from './app.component';
@@ -76,7 +77,8 @@ const routes: Routes = [
         DatabaseService,
         InstagramService,
         FirebaseService,
-        {provide: LocationStrategy, useClass: HashLocationStrategy}
+        {provide: LocationStrategy, useClass: HashLocationStrategy},
+        //{ provide: LOCALE_ID, useValue: "sv-SE" }
   ],
   bootstrap: [
         AppComponent
