@@ -9,15 +9,40 @@
   }
 
   .caption{
-    border-bottom:1px gray solid; 
+    border-bottom:1px #888888 solid; 
     border-bottom-style: inset; 
-    padding-bottom:20px
+    padding-bottom:20px;
+
+    font-family:MINISansSerifBGR-Regular;
+    font-size: 20px;
+    color:#888888;
+   }
+
+   .username{
+    font-family:MINISansSerifBGR-Bold;
+    font-size: 22px;
+    color:black;
+   }
+
+   .date {
+    font-family:MINISansSerifBGR-Regular;
+    font-size: 16px;
+    color:#767676;
    }
 
    a {
     color:black;
     text-decoration: none; /* no underline */
   }
+  .numbers{
+    color: #888888;
+  }
+  .mat-card-avatar{
+
+    height: 50px;
+    width: 50px;
+  }
+
   .mat-card-image:first-child{
         margin-top: 0px;
   }
