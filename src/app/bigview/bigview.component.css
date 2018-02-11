@@ -1,6 +1,6 @@
 .example-card {
     max-width: 345px;
-    margin-bottom: 20px;
+    margin: 10px;
   }
   
   .example-header-image {
@@ -9,7 +9,7 @@
   }
 
   .caption{
-    border-bottom:1px #888888 solid; 
+    border-bottom:1px #e2dbdb solid; 
     border-bottom-style: inset; 
     padding-bottom:20px;
 

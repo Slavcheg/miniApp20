@@ -14,5 +14,24 @@
 </head>
 <body>
   <app-root></app-root>
+  <script>
+    window.onload = function() {
+      var data= {
+      'child_origin':'parentSize',
+      'actions':[
+      {
+      'action':'resize',
+      'params':{
+      'height':'auto'
+      }
+      },
+      ],
+      'callback':true
+      };
+      var stringData = JSON.stringify(data);
+      window.parent.postMessage(stringData,'https://aem-author-proda1.bmw.com/content/MINI/marketDE/mini_de/de_DE/home/explore/eckenentdecken.html');
+      }
+    };
+      </script>
 </body>
 </html>
