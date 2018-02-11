@@ -117,6 +117,7 @@ export class CardComponent implements OnInit {
    onCardSubmit(){
      console.log("On submit")
     this.firebase.insertCard(this._card);
+    console.log("End submit")
   }
   onCardFormSubmit(){
     console.log("Save card: start");

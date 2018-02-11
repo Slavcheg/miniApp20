@@ -49,6 +49,8 @@ const routes: Routes = [
       { path: '**', redirectTo: '' }
     ];
 
+    import {MasonryModule} from '../angular2-masonry'
+
 @NgModule({
   imports: [     
       BrowserModule,
@@ -66,6 +68,9 @@ const routes: Routes = [
 
       HttpModule,
       RouterModule.forRoot(routes),
+
+      MasonryModule,
+      BrowserAnimationsModule
 
   ],
   declarations: [
