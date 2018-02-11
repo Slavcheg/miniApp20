@@ -13,25 +13,44 @@
  
 </head>
 <body>
+    <a id="framebutton" href="#">Resize to 600px height</a>
   <app-root></app-root>
   <script>
-    window.onload = function() {
-      var data= {
-      'child_origin':'parentSize',
-      'actions':[
-      {
-      'action':'resize',
-      'params':{
-      'height':'auto'
-      }
-      },
-      ],
-      'callback':true
-      };
-      var stringData = JSON.stringify(data);
-      window.parent.postMessage(stringData,'https://aem-author-proda1.bmw.com/content/MINI/marketDE/mini_de/de_DE/home/explore/eckenentdecken.html');
-      }
-    };
-      </script>
+var mini = (function(document){
+var watch = function(targetelement,eventType, action, defaultvar){
+if (targetelement.addEventListener) {
+targetelement.addEventListener(eventType, action, defaultvar);
+
+}
+else {
+// support for IE8
+targetelement.attachEvent(on + eventType, action);
+}
+}
+var parentSize = function(event){
+event.preventDefault();
+var data= {
+'child_origin':'parentSize',
+'actions':[
+{
+'action':'resize',
+'params':{
+'height':'auto'
+}
+},
+],
+'callback':true
+};
+var stringData = JSON.stringify(data);
+window.parent.postMessage(stringData,'https://aem-author-proda1.bmw.com/content/MINI/marketDE/mini_de/de_DE/home/explore/eckenentdecken.html?wcmmode=disabled');
+}
+return {
+watch:watch,
+parentSize:parentSize
+}
+})();
+// initialise page.
+mini.watch(document.getElementById('framebutton'),'click',mini.parentSize,false);
+</script>
 </body>
 </html>
