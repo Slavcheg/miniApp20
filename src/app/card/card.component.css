@@ -1,5 +1,5 @@
 .example-card {
-  max-width: 345px;
+  max-width: 347px;
   margin: 10px;
 }
 
@@ -8,26 +8,36 @@
   background-size: cover;
 }
 
+.mat-card>.mat-card-actions:last-child {
+  margin-bottom: -6px;
+}
+
+.mat-card-actions{
+  font-family: MINISansSerif-Regular;
+  font-size: 12px;
+  border-top:2px #e2dbdb solid; 
+  
+  padding-top: 21px;
+}
+
 .caption{
-  border-bottom:1px #e2dbdb solid; 
-  border-bottom-style: inset; 
   padding-bottom:20px;
 
-  font-family:MINISansSerifBGR-Regular;
-  font-size: 20px;
+  font-family:MINISansSerif-Regular;
+  font-size: 14px;
   color:#888888;
  }
 
  .username{
-  font-family:MINISansSerifBGR-Bold;
-  font-size: 22px;
+  font-family:MINISansSerif-Bold;
+  font-size: 16px;
   color:black;
   font-weight: bold;
  }
 
  .date {
-  font-family:MINISansSerifBGR-Regular;
-  font-size: 16px;
+  font-family:MINISansSerif-Regular;
+  font-size: 12px;
   color:#767676;
  }
 

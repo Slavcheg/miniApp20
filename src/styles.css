@@ -6,9 +6,11 @@ body{
 }
 
 @font-face{
-    font-family: 'MINISansSerifBGR-Bold';
+    font-family: 'MINISansSerif-Bold';
     src: url("MINISansSerifBGR-Bold.ttf");
+}
 
-    font-family: 'MINISansSerifBGR-Regular';
-    src: url("MINISansSerifBGR-Regular.ttf");
+@font-face{
+    font-family: 'MINISansSerif-Regular';
+    src: url("MINISansSerif-Regular.ttf");
 }

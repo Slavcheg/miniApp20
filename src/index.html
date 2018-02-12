@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
- 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <!--<a id="framebutton" href="#">Resize to 600px height</a>-->
@@ -30,8 +30,8 @@ function updateIframeHeight(){
       }],
       'callback':true
     };
-    parent.postMessage(  JSON.stringify(msgObj),"*" );
-    //console.log(  $('body').height());
+    parent.postMessage(  JSON.stringify(msgObj),"https://aem-author-proda1.bmw.com/content/MINI/marketDE/mini_de/de_DE/home/explore/eckenentdecken.html" );
+    console.log(  $('body').height());
   },1);
   }
   
