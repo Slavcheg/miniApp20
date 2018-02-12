@@ -23,7 +23,7 @@ export class FirebaseService {
 
     this.cardList.push({
       id: card.id,
-      pro_pic: card.post_pic,
+      pro_pic: card.pro_pic,
       full_name: card.full_name,
       date: card.date,
       post_pic: card.post_pic,
