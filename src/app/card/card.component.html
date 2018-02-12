@@ -8,46 +8,70 @@
       <button mat-button type="button" (click)="onLoad(url.value)">LOAD</button>
 
 
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(' + _card.pro_pic + ')'}"></div>
-        <mat-card-title>{{_card.full_name | uppercase}}</mat-card-title>
-        <mat-card-subtitle>{{_card.date * 1000 | date:'d MMM yyyy'}}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image [src]="_card.post_pic" alt="Post photo">
-      <mat-card-content>
-        <p class="caption">{{_card.caption}}</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <i class="far fa-heart fa-lg"></i>{{'  ' + _card.likes + '  '}}
-        <i class="far fa-comment fa-lg"></i>{{'  ' + _card.comments + '  '}}
-        <i class="fab fa-instagram fa-lg" style="float:right"></i>
-      </mat-card-actions>
-    </mat-card>
+      <mat-card  style="box-shadow: none;" class="example-card">
+          <a href="https://www.instagram.com/{{_card.username}}" target="_blank">
+          <mat-card-header>
+              
+            <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(' + _card.pro_pic + ')'}"></div>
+            <mat-card-title class="username">{{_card.full_name | uppercase}}</mat-card-title>
+            <mat-card-subtitle ><p class="date">{{_card.date * 1000 | date:'d.MMMM yyyy' |uppercase}}</p></mat-card-subtitle>
+              
+          </mat-card-header>   
+        </a>      
+        <a href="https://www.instagram.com/p/{{_card.id}}" target="_blank">  
+          <img mat-card-image style="    width: calc(100% + 28px);
+          margin: 0 -24px 16px -14px;" [src]="_card.post_pic" alt="Post photo">
+        </a>
+          <mat-card-content >
+              <a href="https://www.instagram.com/p/{{_card.id}}" target="_blank">
+            <p class="caption">{{_card.caption}}</p>
+          </a>
+          </mat-card-content>
+          <mat-card-actions style="margin-left: 1px;">
+            <a href="https://www.instagram.com/p/{{_card.id}}" target="_blank"  class="numbers">
+              <i class="far fa-heart fa-2x" style="vertical-align: -.4em;"></i>{{'  ' + _card.likes + '     '}}
+              <i class="far fa-comment fa-2x" style="vertical-align: -.4em; padding-left: 20px"></i>{{'  ' + _card.comments + '     '}}
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" class="numbers">
+              <i class="fab fa-instagram fa-2x" style="float:right"></i></a>
+          </mat-card-actions>
+        </mat-card>
     </form>
   </div>
-
-  <div fxFlex="73" class="two" fxLayout="row wrap" fxLayoutAlign="left top" fxLayoutGap="10px">
-    <div *ngFor="let cards of allCards" >
-        <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="cards.$key">
-        <mat-card class="example-card">
+<div fxFlex="73"  class="two">
+      <masonry>
+      <masonry-brick *ngFor="let cards of allCards">
+        <mat-card  style="box-shadow: none;" class="example-card">
+            <a href="https://www.instagram.com/{{cards.username}}" target="_blank">
             <mat-card-header>
+                
               <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(' + cards.pro_pic + ')'}"></div>
-              <mat-card-title>{{cards.full_name | uppercase}}</mat-card-title>
-              <mat-card-subtitle>{{cards.date * 1000 | date:'d MMM yyyy'}}</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image [src]="cards.post_pic" alt="Post photo">
-            <mat-card-content>
+              <mat-card-title class="username">{{cards.full_name | uppercase}}</mat-card-title>
+              <mat-card-subtitle ><p class="date">{{cards.date * 1000 | date:'d.MMMM yyyy' |uppercase}}</p></mat-card-subtitle>
+                
+            </mat-card-header>   
+          </a>      
+          <a href="https://www.instagram.com/p/{{cards.id}}" target="_blank">  
+            <img mat-card-image style="    width: calc(100% + 28px);
+            margin: 0 -24px 16px -14px;" [src]="cards.post_pic" alt="Post photo">
+          </a>
+            <mat-card-content >
+                <a href="https://www.instagram.com/p/{{cards.id}}" target="_blank">
               <p class="caption">{{cards.caption}}</p>
+            </a>
             </mat-card-content>
-            <mat-card-actions>
-              <i class="far fa-heart fa-lg"></i>{{'  ' + cards.likes + '  '}}
-              <i class="far fa-comment fa-lg"></i>{{'  ' + cards.comments + '  '}}
+            <mat-card-actions style="margin-left: 1px;">
+              <a href="https://www.instagram.com/p/{{cards.id}}" target="_blank"  class="numbers">
+                <i class="far fa-heart fa-2x" style="vertical-align: -.4em;"></i>{{'  ' + cards.likes + '     '}}
+                <i class="far fa-comment fa-2x" style="vertical-align: -.4em; padding-left: 20px"></i>{{'  ' + cards.comments + '     '}}
+              </a>
               <button mat-button type="button" (click)="deleteCard(cards.$key)">DELETE</button>
-              <i class="fab fa-instagram fa-lg" style="float:right"></i>
+              <a href="https://www.instagram.com/" target="_blank" class="numbers">
+                <i class="fab fa-instagram fa-2x" style="float:right"></i></a>
             </mat-card-actions>
           </mat-card>
 
-    </div>
+        </masonry-brick>
+    </masonry>
   </div>
 </div>

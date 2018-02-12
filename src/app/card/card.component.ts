@@ -68,7 +68,7 @@ export class CardComponent implements OnInit {
       post_pic : "https://instagram.fsof3-1.fna.fbcdn.net/vp/d1d44756bbefeef58aa08e4fc9a45ea5/5B0E7798/t51.2885-15/s640x640/sh0.08/e35/27575182_398672613894009_7270277397490958336_n.jpg",
       caption : "A #ClassicMini spotted by @wiley.putnam in #London. #MINIMonday #MINIgram #MINIfan.",
       likes : 63,
-      comments : 0,
+      comments : 5,
       id : "Bez5S1jgQvC",
       username: "mini"
      }

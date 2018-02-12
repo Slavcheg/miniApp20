@@ -1,15 +1,49 @@
 .example-card {
-    max-width: 350px;
-    margin-bottom: 10px;
-  }
-  
-  .example-header-image {
-    
-    background-size: cover;
-  }
+  max-width: 345px;
+  margin: 10px;
+}
 
-  .caption{
-    border-bottom:1px gray solid; 
-    border-bottom-style: inset; 
-    padding-bottom:20px
-   }
+.example-header-image {
+  
+  background-size: cover;
+}
+
+.caption{
+  border-bottom:1px #e2dbdb solid; 
+  border-bottom-style: inset; 
+  padding-bottom:20px;
+
+  font-family:MINISansSerifBGR-Regular;
+  font-size: 20px;
+  color:#888888;
+ }
+
+ .username{
+  font-family:MINISansSerifBGR-Bold;
+  font-size: 22px;
+  color:black;
+  font-weight: bold;
+ }
+
+ .date {
+  font-family:MINISansSerifBGR-Regular;
+  font-size: 16px;
+  color:#767676;
+ }
+
+ a {
+  color:black;
+  text-decoration: none; /* no underline */
+}
+.numbers{
+  color: #888888;
+}
+.mat-card-avatar{
+
+  height: 50px;
+  width: 50px;
+}
+
+.mat-card-image:first-child{
+      margin-top: 0px;
+}

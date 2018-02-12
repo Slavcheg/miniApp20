@@ -16,22 +16,28 @@
     <!--<a id="framebutton" href="#">Resize to 600px height</a>-->
   <app-root></app-root>
   <script>
-window.onload = function(){
-var data= {
-'child_origin':'parentSize',
-'actions':[
-{
-'action':'resize',
-'params':{
-'height':'auto'
-}
-},
-],
-'callback':true
-};
-var stringData = JSON.stringify(data);
-window.parent.postMessage(stringData,'https://aem-author-proda1.bmw.com/content/MINI/marketDE/mini_de/de_DE/home/explore/eckenentdecken.html?wcmmode=disabled');
-}
+function updateIframeHeight(){
+  //msgObj = {'form_submitted' : true };
+  
+  setTimeout(function(){
+    msgObj = {
+      'childOrigin':'init',
+      'actions':[ {
+        'action':'resize',
+        'params':{
+          'height': $('body').height()+30
+        }
+      }],
+      'callback':true
+    };
+    parent.postMessage(  JSON.stringify(msgObj),"*" );
+    //console.log(  $('body').height());
+  },1);
+  }
+  
+  $(document).ready(function(){
+    updateIframeHeight();
+  });
 
 </script>
 </body>
