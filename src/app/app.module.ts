@@ -38,6 +38,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 
+import { DragScrollModule } from 'ngx-drag-scroll';
+
 const routes: Routes = [
       {
         path: '', component: AppComponent,
@@ -50,6 +52,9 @@ const routes: Routes = [
     ];
 
     import {MasonryModule} from '../angular2-masonry'
+
+    import { NgxCarouselModule } from 'ngx-carousel';
+import 'hammerjs';
 
 @NgModule({
   imports: [     
@@ -70,7 +75,9 @@ const routes: Routes = [
       RouterModule.forRoot(routes),
 
       MasonryModule,
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      DragScrollModule,
+      NgxCarouselModule
 
   ],
   declarations: [

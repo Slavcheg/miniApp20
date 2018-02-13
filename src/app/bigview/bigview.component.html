@@ -1,5 +1,5 @@
 
-    <masonry>
+    <masonry *ngIf="mobWidth > 846">
       <masonry-brick *ngFor="let cards of allCards">
         <mat-card  style="box-shadow: none;" class="example-card">
             <a href="https://www.instagram.com/{{cards.username}}" target="_blank">
@@ -32,3 +32,39 @@
 
         </masonry-brick>
     </masonry>
+
+    <ngx-carousel [inputs]="carouselOne" *ngIf="mobWidth < 400">
+      <ngx-item NgxCarouselItem *ngFor="let cards of allCards">
+        <mat-card  style="box-shadow: none;" class="example-card">
+            <a href="https://www.instagram.com/{{cards.username}}" target="_blank">
+            <mat-card-header style="margin-left: -14px;">
+                
+              <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(' + cards.pro_pic + ')'}"></div>
+              <mat-card-title class="username">{{cards.full_name | uppercase}}</mat-card-title>
+              <mat-card-subtitle ><p class="date">{{cards.date * 1000 | date:'d.MMMM yyyy' |uppercase}}</p></mat-card-subtitle>
+                
+            </mat-card-header>   
+          </a>      
+          <a href="https://www.instagram.com/p/{{cards.id}}" target="_blank">  
+            <img mat-card-image style="    width: calc(100% + 28px);
+            margin: 0 -24px 16px -14px;" [src]="cards.post_pic" alt="Post photo">
+          </a>
+            <mat-card-content style="margin-left: -14px;">
+                <a href="https://www.instagram.com/p/{{cards.id}}" target="_blank">
+              <p class="caption">{{cards.caption}}</p>
+            </a>
+            </mat-card-content>
+            <mat-card-actions style="margin-left: -15px;">
+              <a href="https://www.instagram.com/p/{{cards.id}}" target="_blank"  class="numbers">
+                <i class="far fa-heart fa-2x" style="vertical-align: -.4em;"></i>{{'  ' + cards.likes + '     '}}
+                <i class="far fa-comment fa-2x" style="vertical-align: -.4em; padding-left: 20px"></i>{{'  ' + cards.comments + '     '}}
+              </a>
+              <a href="https://www.instagram.com/" target="_blank" class="numbers">
+                <i class="fab fa-instagram fa-2x" style="float:right; margin-right: 1px;"></i></a>
+            </mat-card-actions>
+          </mat-card>
+
+        </ngx-item>
+        <i NgxCarouselPrev class="far fa-angle-left"></i>
+        <i NgxCarouselNext class="far fa-angle-left"></i>
+      </ngx-carousel>
