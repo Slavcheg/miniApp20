@@ -1,5 +1,7 @@
+<div *ngIf="mobWidth > 846; then masonry else slider"></div>
 
-    <masonry *ngIf="mobWidth > 846">
+<ng-template #masonry>
+    <masonry >
       <masonry-brick *ngFor="let cards of allCards">
         <mat-card  style="box-shadow: none;" class="example-card">
             <a href="https://www.instagram.com/{{cards.username}}" target="_blank">
@@ -33,7 +35,10 @@
         </masonry-brick>
     </masonry>
 
-    <ngx-carousel [inputs]="carouselOne" *ngIf="mobWidth < 400">
+  </ng-template>
+
+  <ng-template #slider>
+    <ngx-carousel #slider [inputs]="carouselOne" *ngIf="mobWidth < 400">
       <ngx-item NgxCarouselItem *ngFor="let cards of allCards">
         <mat-card  style="box-shadow: none;" class="example-card">
             <a href="https://www.instagram.com/{{cards.username}}" target="_blank">
@@ -68,3 +73,4 @@
         <i NgxCarouselPrev class="far fa-angle-left"></i>
         <i NgxCarouselNext class="far fa-angle-left"></i>
       </ngx-carousel>
+    </ng-template>

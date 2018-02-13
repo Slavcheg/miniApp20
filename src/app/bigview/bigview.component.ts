@@ -77,7 +77,6 @@ public carouselOne: NgxCarousel;
   }
 
   ngAfterContentChecked() {
-
   }
 
   getAllCards(){
