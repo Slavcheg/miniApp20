@@ -9,8 +9,6 @@ registerLocaleData(localeDe);
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppComponent }  from './app.component';
-import { ArticleComponent }  from './article.component';
-import { ArticleService } from './article.service';
 
 //Set-ups
 import { CardComponent } from './card/card.component';
@@ -82,13 +80,11 @@ import 'hammerjs';
   ],
   declarations: [
       AppComponent,
-	ArticleComponent,
 	CardComponent,
       FormComponent,
       BigviewComponent
   ],
   providers: [
-        ArticleService,
         Card,
         DatabaseService,
         InstagramService,
